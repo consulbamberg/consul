@@ -3,3 +3,32 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+@import 'custom_fonts';
+
+a.navdropbtn {
+    background-color: white;
+    color: black;
+    padding-right: 20px;
+    border: none;
+  }
+  .navdropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .navdropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    z-index: 1;
+  }
+  .navdropdown-content a {
+    color: black;
+    padding: 0px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .navdropdown-content a:hover {background-color: white;}
+  .navdropdown:hover .navdropdown-content {display: block;}
+  .navdropdown:hover .navdropbtn {background-color: white;}

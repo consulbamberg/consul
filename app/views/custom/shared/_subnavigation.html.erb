@@ -1,11 +1,7 @@
-
-
-
-
 <div class="small-12 medium-9 column">
   <ul>
     <%= raw content_block("subnavigation_left", I18n.locale) %>
-    
+    <!--
     <% if feature?(:debates) %>
       <li>
         <%= layout_menu_link_to t("layouts.header.debates"),
@@ -50,7 +46,7 @@
                                   title: t("shared.go_to_page") + t("layouts.header.budgets") %>
       </li>
     <% end %>
-    
+    -->
     <% if feature?(:help_page) %>
       <li>
         <%= layout_menu_link_to t("layouts.header.help"),
