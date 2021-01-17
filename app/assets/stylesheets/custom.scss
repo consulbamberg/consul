@@ -6,29 +6,52 @@
 
 @import 'custom_fonts';
 
-a.navdropbtn {
-    background-color: white;
-    color: black;
-    padding-right: 20px;
-    border: none;
+
+/* Dropdown -------------------- */
+
+.main-nav,
+.drop-nav {
+  background: #d0003a;
+}
+.main-nav {
+  float: left;
+}
+  .main-nav > li {
+    float: left;
   }
-  .navdropdown {
-    position: relative;
-    display: inline-block;
+  .main-nav li:first-child {
+    border-left: none;
   }
-  .navdropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    z-index: 1;
-  }
-  .navdropdown-content a {
-    color: black;
-    padding: 0px 16px;
-    text-decoration: none;
+  .main-nav a {
+    color: #fff;
     display: block;
+    padding: 0px 0px 0px 10px;
+    text-decoration: none;
   }
-  .navdropdown-content a:hover {background-color: white;}
-  .navdropdown:hover .navdropdown-content {display: block;}
-  .navdropdown:hover .navdropbtn {background-color: white;}
+.dropdown,
+.flyout {
+  position: relative;
+  padding-right: 10px;
+}
+
+.drop-nav,
+.flyout-nav {
+  position: absolute;
+  display: none;
+}
+.drop-nav li {
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  width: 100%;
+}
+.dropdown:hover > .drop-nav,
+.flyout:hover > .flyout-nav {
+  display: block;
+}
+.flyout-nav {
+  left: 100%;
+  top: 0;
+}
+.flyout:hover a,
+.flyout-nav {
+  background: #d0003a;
+}

@@ -32,29 +32,6 @@
 // 02. Header
 // ----------
 
-header {
-  background: #fff;
-
-.top-bar {
-  background: #fff !important;
-  color: #fff;
-
-  .menu .menu-text {
-    a {
-      color: #000;
-    }
-  }
-
-  .menu > li {
-
-    a {
-      color: black;
-      }
-    }
-  }
-
-}
-
 .subnavigation {
 
   @include breakpoint(medium) {
@@ -70,13 +47,9 @@ header {
   }
 }
 
-.dropdown.menu > li {
 
-  &.is-active > a {
-    color: #000;
-  }
 
-}
+
 
 // 04. Tags
 // --------
@@ -224,3 +197,4 @@ header {
     }
   }
 }
+
