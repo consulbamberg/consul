@@ -5,7 +5,7 @@
 //
 
 $brand:             #003D90;
-$dark:              darken($brand, 3%);
+$dark:              $brand;
 
 $body-font-family: 'Humnst b', 'Humnst b', 'Humnst i', sans-serif !important;
 $header-font-family: 'Humnst b', 'Humnst b', 'Humnst i', sans-serif !important;
