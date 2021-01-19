@@ -28,29 +28,6 @@
 //
 
 
-
-// 02. Header
-// ----------
-
-.subnavigation {
-
-  @include breakpoint(medium) {
-    background: #d0003a;
-  }
-
-  a {
-
-    @include breakpoint(medium) {
-      color: #fff;
-    }
-
-  }
-}
-
-
-
-
-
 // 04. Tags
 // --------
 
@@ -73,7 +50,7 @@
   }
 }
 
-// 24. Homepage
+// 24. Homepage - Tiles
 // ------------
 
 .home-page,

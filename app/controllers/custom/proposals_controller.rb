@@ -42,6 +42,7 @@ class ProposalsController
   def take_only_by_tag_names
     if params[:tags].present?
       @resources = @resources.tagged_with(params[:tags].split(","), all: true)
+      @subcategories = @resources.tag_counts.subcategory
     end
   end
   

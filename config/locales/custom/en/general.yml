@@ -1,0 +1,12 @@
+en:
+  debates:
+    new:
+      start_new_in: Start a debate in %{category}
+  proposals:
+    new:
+      start_new_in: Create new proposal in %{category}
+  shared:
+    tags_cloud:
+      subcategories: "Subcategories"
+  alerts:
+    select_one_category: "Please select one category to create a %{model}"
