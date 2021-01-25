@@ -284,6 +284,22 @@
   background: #d0003a;
 }
 
+
+#alert {
+  z-index: 150;
+  position: absolute;
+}
+
+
+#notice {
+  z-index: 150;
+  position: absolute;
+}
+
+
+
+// Bugfix
+
 .topless {
   @include breakpoint(small) {
     top: auto !important;

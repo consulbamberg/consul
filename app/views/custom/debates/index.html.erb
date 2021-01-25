@@ -37,6 +37,20 @@
                                              namespace: "debates" %>
     <% end %>
   
+    <%tags = []%>
+    <%can_create = true%>
+    <%selected_tags = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt)}&.compact || []%>
+  
+    <%if Debate::MANAGE_CATEGORIES & Debate::TAGS_PREDEFINED > 0%>
+      <%tag_categories = selected_tags&.map {|tt| tt&.kind == 'category' ? tt : nil}&.compact %>
+      <%can_create = tag_categories&.length > 0%>
+      <%tags += tag_categories%>
+    <%end%>
+    <%if Debate::MANAGE_SUBCATEGORIES & Debate::TAGS_PREDEFINED > 0%>
+      <%tag_subcategories = selected_tags&.map {|tt| tt&.kind == 'subcategory' ? tt : nil}&.compact %>
+      <%can_create = can_create && tag_subcategories&.length > 0%>
+      <%tags += tag_subcategories%>
+    <%end%>
     <div class="row">
       <div id="debates" class="debates-list small-12 medium-9 column">
   
@@ -57,9 +71,10 @@
         <%= render "shared/order_links", i18n_namespace: "debates.index" %>
   
         <div class="show-for-small-only">
-          <%-tag_categories = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt) and t2&.kind == 'category' ? t2 : nil}&.compact %>
-          <%-can_create = tag_categories&.length == 1%>
-          <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tag_categories&.first&.name), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
+  
+  
+  
+          <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tags.any? ? tags.map{|t| t.name}.join(",") : nil), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
         </div>
   
         <% if @debates.any? || current_user.blank? %>
@@ -92,7 +107,7 @@
       <div class="small-12 medium-3 column">
         <aside class="margin-bottom">
   
-          <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tag_categories&.first&.name), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
+          <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tags.any? ? tags.map{|t| t.name}.join(",") : nil), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
           <%= render "shared/categories", model: "debate" %>
           <%= render "shared/tag_cloud", taggable: "debate" %>
         </aside>
