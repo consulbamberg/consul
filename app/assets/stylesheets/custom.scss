@@ -40,9 +40,11 @@
   padding: 0px 0px 0px 10px;
   z-index: 1000;
 }
+
+// width of the list itmes
 .drop-nav li {
   border-bottom: 1px solid rgba(255,255,255,.2);
-  width: 100%;
+  width: 360px;
 }
 .dropdown:hover > .drop-nav,
 .flyout:hover > .flyout-nav {
@@ -57,50 +59,15 @@
   background: #d0003a;
 }
 
-
 #alert {
-  z-index: 150;
+  z-index: 1000;
   position: absolute;
 }
-
 
 #notice {
-  z-index: 150;
+  z-index: 1000;
   position: absolute;
 }
-
-
-
-// Bugfix
-
-.topless {
-  @include breakpoint(small) {
-    top: auto !important;
-    }
- 
-  @include breakpoint(medium) {
-  top: 0px !important;
-  }
-}
-
-
-
-// 02. Header
-// ----------
-
-
-.top-bar {
-  @media only screen and (min-width: 414px) and (max-width: 1140px) {    
-    h2 {
-      display:none;
-    }
-  }
-}
-
-.top-h1 {
-  padding-left: 10px;
-}
-
 
 .subnavigation {
 
@@ -115,4 +82,31 @@
     }
 
   }
+}
+
+// Bugfix
+
+.topless {
+  @include breakpoint(small) {
+    top: auto !important;
+    }
+ 
+  @include breakpoint(medium) {
+  top: 0px !important;
+  }
+}
+
+
+// Header
+
+.top-bar {
+  @media only screen and (min-width: 414px) and (max-width: 1140px) {    
+    h2 {
+      display:none;
+    }
+  }
+}
+
+.top-h1 {
+  padding-left: 10px;
 }
